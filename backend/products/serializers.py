@@ -5,7 +5,7 @@ class SupplierSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Supplier
-        fields = ['id', "name", "contact_email", 'contact_number', 'address']
+        fields = ['id', "name", "contact_email", 'phone_number', 'address']
 
 class ProductSerializer(serializers.ModelSerializer):
     # To show the full details of the supplier instead of just an ID number

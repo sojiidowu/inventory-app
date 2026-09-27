@@ -15,6 +15,9 @@ class SupplierViewSet(viewsets.ModelViewSet):
 class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all().order_by('-id')
     serializer_class = ProductSerializer
+    search_fields = ['name','sku', 'description']
+    filterset_fields = ['supplier']
+    ordering_fields = ['id', 'name', 'price', 'stock_quantity']
 
     @action(detail=False, methods=['get'])
     def low_stock(self, request):

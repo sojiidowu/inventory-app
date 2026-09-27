@@ -39,8 +39,18 @@ class ProductAPITestCase(APITestCase):
         }
 
         response = self.client.post(self.list_url, payload)
-        print(response.data)
 
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
         self.assertEqual(Product.objects.count(), 3)
+
+    def test_retrieve_product(self):
+        response = self.client.get(reverse('product-detail', args=[self.product.id]))
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data['name'], self.product.name)
+
+    def test_delete_product(self):
+        response = self.client.delete(reverse('product-detail', args=[self.product.id]))
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+        self.assertEqual(Product.objects.count(), 1)
+        self.assertFalse(Product.objects.filter(id=self.product.id).exists())

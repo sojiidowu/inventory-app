@@ -7,6 +7,7 @@ import {
   LayoutDashboard,
   Boxes,
 } from "lucide-react";
+import SearchBar from "./SearchBar";
 
 import React from "react";
 
@@ -14,6 +15,10 @@ const Navbar = () => {
   const location = useLocation();
 
   const isActive = (path) => location.pathname === path;
+
+  const handleSearch = (term) => {
+    console.log("Searching for:", term);
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -63,6 +68,9 @@ const Navbar = () => {
             Products
           </Link>
         </nav>
+
+        {/* Global Search Bar */}
+        <SearchBar onSearch={handleSearch} />
 
         {/* Qucik Action Buttons */}
         <div className="flex items-center gap-3">

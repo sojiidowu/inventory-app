@@ -9,16 +9,16 @@ import MainLayout from "./layouts/MainLayout";
 import HomePage from "./pages/HomePage";
 
 import { useState } from "react";
-import ProductListings from "./components/ProductListings";
-import SupplierListings from "./components/SupplierListings";
+import SuppliersPage from "./pages/SuppliersPage";
+import ProductsPage from "./pages/ProductsPage";
 
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<MainLayout />}>
         <Route index element={<HomePage />} />
-        <Route path="/suppliers" element={<SupplierListings />} />
-        <Route path="/products" element={<ProductListings />} />
+        <Route path="/suppliers" element={<SuppliersPage />} />
+        <Route path="/products" element={<ProductsPage />} />
       </Route>,
     ),
   );

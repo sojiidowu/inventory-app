@@ -67,7 +67,7 @@ const ProductListings = ({ isHome = false }) => {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Product sName</TableHead>
+                <TableHead>Product Name</TableHead>
                 <TableHead>SKU</TableHead>
                 <TableHead>Price</TableHead>
                 <TableHead>Stock Level</TableHead>

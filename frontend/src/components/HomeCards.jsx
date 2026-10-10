@@ -1,6 +1,7 @@
 import React from "react";
 import useSuppliers from "../hooks/useSuppliers";
 import useProducts from "../hooks/useProducts";
+import useLowStock from "@/hooks/useLowStock";
 import { Link } from "react-router-dom";
 
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
@@ -10,6 +11,7 @@ import { Badge } from "lucide-react";
 const HomeCards = () => {
   const { data: supplierData, isLoading: loadingSuppliers } = useSuppliers();
   const { data: productData, isLoading: loadingProducts } = useProducts();
+  const { data: lowStockData, isLoading, loadingLowStock } = useLowStock();
 
   return (
     <>
@@ -50,7 +52,9 @@ const HomeCards = () => {
               <Badge variant="destructive">Action Required</Badge>
             </CardHeader>
             <CardContent>
-              <div className="text-3xl font-bold text-red-600">3</div>
+              <div className="text-3xl font-bold text-red-600">
+                {loadingLowStock ? "..." : lowStockData?.length || 0}
+              </div>
             </CardContent>
           </Card>
         </div>

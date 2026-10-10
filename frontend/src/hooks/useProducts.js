@@ -8,6 +8,7 @@ const useProducts = () => {
     queryKey: ["products"],
     queryFn: async () => {
       const res = await api.get("products/");
+      console.log(res.data);
       return res.data; // Returns { count: X, results: [...] }
     },
   });

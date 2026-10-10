@@ -11,6 +11,8 @@ import HomePage from "./pages/HomePage";
 import { useState } from "react";
 import SuppliersPage from "./pages/SuppliersPage";
 import ProductsPage from "./pages/ProductsPage";
+import NotFoundPage from "./pages/NotFoundPage";
+import ProductPage from "./pages/ProductPage";
 
 function App() {
   const router = createBrowserRouter(
@@ -19,6 +21,9 @@ function App() {
         <Route index element={<HomePage />} />
         <Route path="/suppliers" element={<SuppliersPage />} />
         <Route path="/products" element={<ProductsPage />} />
+        <Route path="/products/:id" element={<ProductPage />} />
+
+        <Route path="*" element={<NotFoundPage />} />
       </Route>,
     ),
   );

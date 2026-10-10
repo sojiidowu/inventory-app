@@ -83,7 +83,12 @@ const ProductListings = ({ isHome = false }) => {
                 return (
                   <TableRow key={product.id}>
                     <TableCell className="font-medium">
-                      {product.name}
+                      <Link
+                        to={`/products/${product.id}`}
+                        className="hover:underline text-primary"
+                      >
+                        {product.name}
+                      </Link>
                     </TableCell>
                     <TableCell>{product.sku || "N/A"}</TableCell>
                     <TableCell>{product.price || "N/A"}</TableCell>

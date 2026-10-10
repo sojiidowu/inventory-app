@@ -9,6 +9,8 @@ import {
 } from "lucide-react";
 import SearchBar from "./SearchBar";
 
+import AddSupplierForm from "./AddSupplierForm";
+
 import React from "react";
 
 const Navbar = () => {
@@ -74,13 +76,7 @@ const Navbar = () => {
 
         {/* Qucik Action Buttons */}
         <div className="flex items-center gap-3">
-          <Link
-            to="/suppliers/add"
-            className={buttonVariants({ variant: "outline", size: "sm" })}
-          >
-            <PlusCircle className="mr-2 h-4 w-4" />
-            Add Supplier
-          </Link>
+          <AddSupplierForm />
 
           <Link
             to="/products/add"
